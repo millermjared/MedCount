@@ -10,6 +10,5 @@ import Foundation
 import CoreData
 
 @objc(EntityA)
-public class EntityA: NSManagedObject, ModelEntity {
-    static var name = "EntityA"
+public final class EntityA: NSManagedObject, ModelEntity, FetchableModelEntity {
 }

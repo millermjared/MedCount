@@ -17,6 +17,7 @@ extension EntityA {
     }
 
     @NSManaged public var attributeA: String?
+    @NSManaged public var attributeB: String?
 
 }
 
