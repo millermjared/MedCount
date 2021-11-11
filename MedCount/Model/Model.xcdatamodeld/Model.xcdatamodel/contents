@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ConsumptionRecord" representedClassName=".ConsumptionRecord" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="prescription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Prescription" inverseName="consumptionRecords" inverseEntity="Prescription"/>
+    </entity>
+    <entity name="Patient" representedClassName=".Patient" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="birthdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="diagnosis" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="lastVisit" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mrnNumber" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nextVisit" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="telephone" optional="YES" attributeType="String"/>
+        <relationship name="prescriptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Prescription" inverseName="patient" inverseEntity="Prescription"/>
+    </entity>
+    <entity name="Prescription" representedClassName=".Prescription" syncable="YES">
+        <attribute name="deliveryType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mg" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ml" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="tablet" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="consumptionRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConsumptionRecord" inverseName="prescription" inverseEntity="ConsumptionRecord"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="prescriptions" inverseEntity="Patient"/>
+    </entity>
+    <elements>
+        <element name="ConsumptionRecord" positionX="-253.909423828125" positionY="41.40667724609375" width="128" height="74"/>
+        <element name="Patient" positionX="-286.060546875" positionY="-161.6269836425781" width="128" height="179"/>
+        <element name="Prescription" positionX="27.18280029296875" positionY="-42.77476501464844" width="128" height="134"/>
+    </elements>
+</model>
